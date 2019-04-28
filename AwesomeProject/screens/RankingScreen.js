@@ -47,59 +47,267 @@ export default class RankingScreen extends React.Component {
   }
 
   render() {
-    return (
-      <ScrollView style={styles.container}>
-      <Text style={styles.text}>Candidate: {this.state.currentCandidate}</Text>
-      <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
-      
-      <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
-            full
-            rounded
-            color="skyblue"
-            onPress={()=> this.rank(5)}
-            >
-        <Text style={{color: 'white'}}>Great</Text>
-      </Button>
+    if(this.state.currentIndex == 0) {
+      return (
+        <ScrollView style={styles.container}>
+        <Text style={styles.text}>Candidate: {this.state.currentCandidate}</Text>
+        <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
+        <Image source={require('../assets/images/img_booker.jpg')} style={styles.image}/>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(5)}
+              >
+          <Text style={{color: 'white'}}>Great</Text>
+        </Button>
 
-      <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
-            full
-            rounded
-            color="skyblue"
-            onPress={()=> this.rank(4)}
-            >
-        <Text style={{color: 'white'}}>Good</Text>
-      </Button>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(4)}
+              >
+          <Text style={{color: 'white'}}>Good</Text>
+        </Button>
 
-      <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
-            full
-            rounded
-            color="skyblue"
-            onPress={()=> this.rank(3)}
-            >
-        <Text style={{color: 'white'}}>Average</Text>
-      </Button>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(3)}
+              >
+          <Text style={{color: 'white'}}>Average</Text>
+        </Button>
 
-      <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
-            full
-            rounded
-            color="skyblue"
-            onPress={()=> this.rank(2)}
-            >
-        <Text style={{color: 'white'}}>Lacking</Text>
-      </Button>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(2)}
+              >
+          <Text style={{color: 'white'}}>Lacking</Text>
+        </Button>
 
-      <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
-            full
-            rounded
-            color="skyblue"
-            onPress={()=> this.rank(1)}
-            >
-        <Text style={{color: 'white'}}>Terrible</Text>
-      </Button>
-      </ScrollView>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(1)}
+              >
+          <Text style={{color: 'white'}}>Terrible</Text>
+        </Button>
+        </ScrollView>
+      ) 
+    } else if(this.state.currentIndex == 1) {
+      return (
+        <ScrollView style={styles.container}>
+        <Text style={styles.text}>Candidate: {this.state.currentCandidate}</Text>
+        <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
+        <Image source={require('../assets/images/img_trump.jpg')} style={styles.image}/>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(5)}
+              >
+          <Text style={{color: 'white'}}>Great</Text>
+        </Button>
 
-      
-    )
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(4)}
+              >
+          <Text style={{color: 'white'}}>Good</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(3)}
+              >
+          <Text style={{color: 'white'}}>Average</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(2)}
+              >
+          <Text style={{color: 'white'}}>Lacking</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(1)}
+              >
+          <Text style={{color: 'white'}}>Terrible</Text>
+        </Button>
+        </ScrollView>
+      )
+    } else if(this.state.currentIndex == 2) {
+      return (
+        <ScrollView style={styles.container}>
+        <Text style={styles.text}>Candidate: {this.state.currentCandidate}</Text>
+        <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
+        <Image source={require('../assets/images/img_cruz.jpg')} style={styles.image}/>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(5)}
+              >
+          <Text style={{color: 'white'}}>Great</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(4)}
+              >
+          <Text style={{color: 'white'}}>Good</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(3)}
+              >
+          <Text style={{color: 'white'}}>Average</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(2)}
+              >
+          <Text style={{color: 'white'}}>Lacking</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(1)}
+              >
+          <Text style={{color: 'white'}}>Terrible</Text>
+        </Button>
+        </ScrollView>
+      )
+    } else if(this.state.currentIndex == 3) {
+      return (
+        <ScrollView style={styles.container}>
+        <Text style={styles.text}>Candidate: {this.state.currentCandidate}</Text>
+        <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
+        <Image source={require('../assets/images/img_harris.jpg')} style={styles.image}/>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(5)}
+              >
+          <Text style={{color: 'white'}}>Great</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(4)}
+              >
+          <Text style={{color: 'white'}}>Good</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(3)}
+              >
+          <Text style={{color: 'white'}}>Average</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(2)}
+              >
+          <Text style={{color: 'white'}}>Lacking</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(1)}
+              >
+          <Text style={{color: 'white'}}>Terrible</Text>
+        </Button>
+        </ScrollView>
+      )
+    } else if(this.state.currentIndex == 4) {
+      return (
+        <ScrollView style={styles.container}>
+        <Text style={styles.text}>Candidate: {this.state.currentCandidate}</Text>
+        <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
+        <Image source={require('../assets/images/img_obama.jpg')} style={styles.image}/>
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(5)}
+              >
+          <Text style={{color: 'white'}}>Great</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(4)}
+              >
+          <Text style={{color: 'white'}}>Good</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(3)}
+              >
+          <Text style={{color: 'white'}}>Average</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(2)}
+              >
+          <Text style={{color: 'white'}}>Lacking</Text>
+        </Button>
+
+        <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
+              full
+              rounded
+              color="skyblue"
+              onPress={()=> this.rank(1)}
+              >
+          <Text style={{color: 'white'}}>Terrible</Text>
+        </Button>
+        </ScrollView>
+      )
+    }
   }
 }
 
@@ -111,9 +319,11 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 150,
-    height: 150,
-    justifyContent: 'center'
+    height: 200,
+    width: null,
+    flexGrow: 1,
+    alignItems: 'center',
+    justifyContent:'center',
   },
   
   text: {
