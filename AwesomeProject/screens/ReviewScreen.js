@@ -182,11 +182,11 @@ console.log("hello4");
 	
         <FlatList
           data={[
-            //{key: this.format(this.state.dataSource[0])},
-            //{key: this.format(this.state.dataSource2[0])},
-            //{key: this.format(this.state.dataSource3[0])},
-            //{key: this.format(this.state.dataSource4[0])},
-	          //{key: this.format(this.state.dataSource5[0])},
+            {key: this.format(this.state.dataSource[0])},
+            {key: this.format(this.state.dataSource2[0])},
+            {key: this.format(this.state.dataSource3[0])},
+            {key: this.format(this.state.dataSource4[0])},
+	          {key: this.format(this.state.dataSource5[0])},
           ]}
           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
         />
