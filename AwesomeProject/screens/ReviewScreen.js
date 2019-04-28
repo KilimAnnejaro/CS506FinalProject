@@ -11,8 +11,8 @@ import {
 
 import * as firebase from "firebase";
 import { BorderlessButton } from 'react-native-gesture-handler';
-import axios from 'axios';
-import btoa from 'btoa';
+//import axios from 'axios';
+//import btoa from 'btoa';
 
 //require("firebase/functions");
 
@@ -23,51 +23,48 @@ export default class ReviewScreen extends React.Component {
 
   constructor(props){
     super(props);
-    this.state ={ isLoading: true}
+    this.state ={ isLoading: true, dataSource: [], dataSource2: [], dataSource3: [], dataSource4: [], dataSource5: []}
   }
 
+format(issue){
+	if(issue<=1.49){
+		return 'Abortion';
+	}
+	else if(issue<=2.49){
+		return 'Military funding';
+	}
+	else if(issue<=3.49){
+		return 'Immigration';
+	}
+	else if(issue<=4.49){
+		return 'Healthcare';
+	}
+	else if(issue<=5.49){
+		return 'The Environment';
+	}
+	return issue;
+	
+}
+
   componentDidMount(){
-    /*return axios.post('https://ml.googleapis.com/v1/projects/cs506finalproject/models/abortion/versions/abortionv1:predict', {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer `gcloud auth activate-service-account --key-file cs506finalproject-c7fd792fbbbe.json; gcloud auth print-access-token`',
-        },
-      body: JSON.stringify({
-        instances: '[[4,1,0,4,0,1,3,4,4,3,3,2,3,0,1,0,0,1,0,3],[0,3,3,0,4,3,0,1,0,0,0,0,1,3,3,3,4,3,3,1]]'
-      }),
-    }).then((response) => response.json())
+let data = {
+	"instances": [
+		[4, 1, 0, 4, 0, 1, 3, 4, 4, 3, 3, 2, 3, 0, 1, 0, 0, 1, 0, 3],
+	]
+};
+    fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/most_important_issue/versions/mostimportantissuev1:predict", {
+        	body: JSON.stringify(data),
+        	headers: {
+                	Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+        	method: "POST" }).then((response) => response.json())
     .then((responseJson) => {
+console.log("hello1");
+console.log(JSON.stringify(responseJson));
       this.setState({
         isLoading: false,
         dataSource: responseJson.predictions,
       }, function(){
-        console.log(responseJson);
-      });
-    }).catch((error) =>{
-      console.error(error);
-    });*/
-
-
-    //axios.defaults.baseURL = 'https://ml.googleapis.com/v1/projects/cs506finalproject/models/abortion/versions/abortionv1:predict'
-    //axios.defaults.headers.common = {'Authorization': 'Bearer `gcloud auth activate-service-account --key-file cs506finalproject-c7fd792fbbbe.json; gcloud auth print-access-token`',
-    //'Content-Type': 'application/json'}
-
-    return fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/abortion/versions/abortionv1:predict", {
-      method: 'POST',
-      headers: new Headers({
-      accept: 'application/json',
-      'Content-Type': 'application/json',
-      'authorization': 'gcloud auth activate-service-account --key-file cs506finalproject-c7fd792fbbbe.json; gcloud auth print-access-token`',
-      }),
-      body: JSON.stringify({
-        instances: '[[4,1,0,4,0,1,3,4,4,3,3,2,3,0,1,0,0,1,0,3],[0,3,3,0,4,3,0,1,0,0,0,0,1,3,3,3,4,3,3,1]]'
-      }),
-    }).then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson.predictions,
-      }, function(){
+console.log("hello2");
 	      console.log(responseJson);
       });
     }).catch((error) =>{
@@ -75,23 +72,83 @@ export default class ReviewScreen extends React.Component {
     });
 
 
-    /*return fetch("https://cs506finalprojectapi.appspot.com/_ah/api/echo/v1/echo", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: '{"message":"hello world"}'
-    }).then((response) => response.json())
+    fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/third_most_important_issue/versions/v1:predict", {
+        	body: JSON.stringify(data),
+        	headers: {
+                	Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+        	method: "POST" }).then((response) => response.json())
     .then((responseJson) => {
+console.log("hello1");
+console.log(JSON.stringify(responseJson));
       this.setState({
         isLoading: false,
-        dataSource: responseJson.message,
+        dataSource3: responseJson.predictions,
       }, function(){
+console.log("hello2");
 	      console.log(responseJson);
       });
     }).catch((error) =>{
       console.error(error);
-    });*/
+    });
+
+    fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/fourth_most_important_issue/versions/v1:predict", {
+        	body: JSON.stringify(data),
+        	headers: {
+                	Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+        	method: "POST" }).then((response) => response.json())
+    .then((responseJson) => {
+console.log("hello1");
+console.log(JSON.stringify(responseJson));
+      this.setState({
+        isLoading: false,
+        dataSource4: responseJson.predictions,
+      }, function(){
+console.log("hello2");
+	      console.log(responseJson);
+      });
+    }).catch((error) =>{
+      console.error(error);
+    });
+
+    fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/fifth_most_important_issue/versions/v1:predict", {
+        	body: JSON.stringify(data),
+        	headers: {
+                	Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+        	method: "POST" }).then((response) => response.json())
+    .then((responseJson) => {
+console.log("hello1");
+console.log(JSON.stringify(responseJson));
+      this.setState({
+        isLoading: false,
+        dataSource5: responseJson.predictions,
+      }, function(){
+console.log("hello2");
+	      console.log(responseJson);
+      });
+    }).catch((error) =>{
+      console.error(error);
+    }); 
+
+  return fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/second_most_important_issue/versions/v1:predict", {
+        	body: JSON.stringify(data),
+        	headers: {
+                	Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+        	method: "POST" }).then((response) => response.json())
+    .then((responseJson) => {
+console.log("hello3");
+console.log(JSON.stringify(responseJson));
+      this.setState({
+        isLoading: false,
+        dataSource2: responseJson.predictions,
+      }, function(){
+console.log("hello4");
+	      console.log(responseJson);
+      });
+    }).catch((error) =>{
+      console.error(error);
+    });
+
+
   }
 
   render() {
@@ -122,21 +179,22 @@ export default class ReviewScreen extends React.Component {
         />
 
       <Text style={styles.text}>Top Issues</Text>
+	
         <FlatList
           data={[
-            {key: 'Gun Control'},
-            {key: 'Abortion'},
-            {key: 'Foreign Policy'},
-            {key: 'Economy'},
+            {key: this.format(this.state.dataSource[0])},
+            {key: this.format(this.state.dataSource2[0])},
+            {key: this.format(this.state.dataSource3[0])},
+            {key: this.format(this.state.dataSource4[0])},
+	    {key: this.format(this.state.dataSource5[0])},
           ]}
           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
         />
+
       </View>
     );
   }
-
-
-  
+ 
 }
 
 const styles = StyleSheet.create({

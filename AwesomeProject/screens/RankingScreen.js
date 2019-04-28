@@ -51,9 +51,6 @@ export default class RankingScreen extends React.Component {
       <ScrollView style={styles.container}>
       <Text style={styles.text}>Candidate: {this.state.currentCandidate}</Text>
       <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
-      if(this.state.currentIndex == 0) {
-        <Image source='../assets/images/img_booker.jpg'/>
-      }
       
       <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
             full
@@ -102,7 +99,7 @@ export default class RankingScreen extends React.Component {
       </ScrollView>
 
       
-    );
+    )
   }
 }
 
