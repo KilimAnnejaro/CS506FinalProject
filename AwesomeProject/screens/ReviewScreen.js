@@ -55,7 +55,8 @@ export default class ReviewScreen extends React.Component {
     let data = {
       //Obama, Bush, Trump, Clinton, Romney, McCain, Sanders, Biden, Warren, Booker, Harris, Gillibrand, Klobuchar, Cruz, Kasich, Rubio, Walker, Carson, Bush, Kerry
       "instances": [
-        [candRank.Obama.ranking, 0, candRank.Trump.ranking, 0, 0, 0, 0, 0, 0, candRank.Booker.ranking, candRank.Harris.ranking, 0, 0, candRank.Cruz.ranking, 0, 0, 0, 0, 0, 0],
+        [0,4,0,3,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        //[candRank.Obama.ranking, 0, candRank.Trump.ranking, 0, 0, 0, 0, 0, 0, candRank.Booker.ranking, candRank.Harris.ranking, 0, 0, candRank.Cruz.ranking, 0, 0, 0, 0, 0, 0],
       ]
     };
     fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/most_important_issue/versions/mostimportantissuev1:predict", {
