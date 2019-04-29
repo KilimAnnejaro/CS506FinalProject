@@ -27,22 +27,8 @@ export default class ReviewScreen extends React.Component {
     var UID = firebase.auth().currentUser.uid;
     firebase.database().ref('Users/' + UID).on('value', function 
       (snapshot) {
-        obj = snapshot.val().Responses
+        return obj = snapshot.val().Responses;
     });
-
-    for(i = 4; i <= 0; i--) {
-      for(j = 1; j <= i; j++) {
-        if(obj.candidates[j-1].ranking > obj.candidates[j].ranking) {
-          temp = candidatesfb[j-1];
-          candidatesfb[j-1] = candidatesfb[j];
-          candidatesfb[j] = temp;
-
-          temp = candidates[j-1];
-          candidates[j-1] = candidates[j];
-          candidates[j] = temp;
-        }
-      }
-    }
   }
 
   format(issue){
@@ -65,9 +51,11 @@ export default class ReviewScreen extends React.Component {
   }
 
   componentDidMount(){
+    candRank = this.getRankings()
     let data = {
+      //Obama, Bush, Trump, Clinton, Romney, McCain, Sanders, Biden, Warren, Booker, Harris, Gillibrand, Klobuchar, Cruz, Kasich, Rubio, Walker, Carson, Bush, Kerry
       "instances": [
-        [4, 1, 0, 4, 0, 1, 3, 4, 4, 3, 3, 2, 3, 0, 1, 0, 0, 1, 0, 3],
+        [candRank.Obama.ranking, 0, candRank.Trump.ranking, 0, 0, 0, 0, 0, 0, candRank.Booker.ranking, candRank.Harris.ranking, 0, 0, candRank.Cruz.ranking, 0, 0, 0, 0, 0, 0],
       ]
     };
     fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/most_important_issue/versions/mostimportantissuev1:predict", {
