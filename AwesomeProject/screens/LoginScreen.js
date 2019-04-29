@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text, StyleSheet, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
-import {Container, Content, Header, Form, Input, Item, Button, Label} from "native-base"
-import { AppRegistry, Image } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, Image, Alert } from 'react-native';
+import {Container, Form, Input, Item, Button, Label} from "native-base"
 import * as firebase from "firebase";
 
 
@@ -43,13 +42,26 @@ loginUser = (email, password, context) =>{
       .signInWithEmailAndPassword(email, password)
       .then(function (user) {
         console.log(user)
-        context.props.navigation.navigate('Main')
+        context.props.navigation.navigate('Ranking')
         
       })
       .catch(error => alert("Login not successful. Invalid Credentials"));
     }catch(error){
       alert(error.toString)
     }
+}
+
+helpme = () => {
+  Alert.alert(
+    "Vote For You Information",
+    "Vote For You is an app to get the average American excited and involved " 
+    + "in politics! First either create an account or login.  Once in the app, navigate to the \"Rankings\" page and start "
+    + "ranking candidates. If you want to know more about each candidate, simply "
+    + "click on their picture and a short summary will pop up. Once you have gone "
+    + "through all the candidates, you can switch to the \"Review\" page. On that "
+    + "page, you can see your top candidates and issues. Once you know what issues "
+    + "you should support, go out and vote!",
+  )
 }
 
 render() {
@@ -59,6 +71,10 @@ render() {
       <Container style={styles.container }>
         <Form>
           <Text style={styles.text}>Vote For You!</Text>
+          <TouchableOpacity onPress={()=>this.helpme()}>
+            <Image source={require('../assets/images/capitol.jpg')} style={styles.image}/>
+            <Text style={styles.helpmeText}>Click for more info!</Text>
+          </TouchableOpacity>
           <Item floatingLabel>
             <Label>Email</Label>
             <Input
@@ -135,14 +151,28 @@ const styles = StyleSheet.create({
 
   signUpText: {
     color:'rgba(128,128,128,0.6)',
-    fontSize: 16
+    fontSize: 16,
+  },
+
+  helpmeText: {
+    color:'rgba(128,128,128,0.6)',
+    fontSize: 16,
+    textAlign: 'center'
   },
 
   signupButton: {
     color: '#000000',
     fontSize: 16,
     fontWeight: '500'
-  }
+  },
+
+  image: {
+    height: 200,
+    width: null,
+    flexGrow: 1,
+    alignItems: 'center',
+    justifyContent:'center',
+  },
 
 })
 

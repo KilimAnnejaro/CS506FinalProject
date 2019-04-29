@@ -15,6 +15,7 @@ export default class RankingScreen extends React.Component {
       currentIndex: 0,
       currentCandidate: 'Cory Booker',
       candidates: ["Cory Booker", "Donald Trump", "Ted Cruz", "Kamala Harris", "Barack Obama"],
+      candidatesfb: ["Booker", "Trump", "Cruz", "Harris", "Obama"],
       currentParty: 'Democratic',
       parties: ["Democratic", "Republican", "Republican", "Democratic", "Democratic"],
       info: [
@@ -30,7 +31,7 @@ export default class RankingScreen extends React.Component {
   rank = (rank) => {
     //Store response into firebase    
     var UID = firebase.auth().currentUser.uid;
-    firebase.database().ref('Users/' + UID + '/Responses/' + this.state.currentCandidate).set({
+    firebase.database().ref('Users/' + UID + '/Responses/' + this.state.candidatesfb[this.state.currentIndex]).set({
       candidateName: this.state.currentCandidate,
       ranking: rank
     })
@@ -59,6 +60,7 @@ export default class RankingScreen extends React.Component {
         <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
         <TouchableOpacity onPress={()=>this.candidateInfo()}>
           <Image source={require('../assets/images/img_booker.jpg')} style={styles.image}/>
+          <Text style={styles.helpmeText}>Click for more info!</Text>
         </TouchableOpacity>
         <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
               full
@@ -113,6 +115,7 @@ export default class RankingScreen extends React.Component {
         <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
         <TouchableOpacity onPress={()=>this.candidateInfo()}>
           <Image source={require('../assets/images/img_trump.jpg')} style={styles.image}/>
+          <Text style={styles.helpmeText}>Click for more info!</Text>
         </TouchableOpacity>
         <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
               full
@@ -167,7 +170,8 @@ export default class RankingScreen extends React.Component {
         <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
         <TouchableOpacity onPress={()=>this.candidateInfo()}>
           <Image source={require('../assets/images/img_cruz.jpg')} style={styles.image}/>
-        </TouchableOpacity>
+          <Text style={styles.helpmeText}>Click for more info!</Text>
+       </TouchableOpacity>
         <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
               full
               rounded
@@ -221,6 +225,7 @@ export default class RankingScreen extends React.Component {
         <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
         <TouchableOpacity onPress={()=>this.candidateInfo()}>
           <Image source={require('../assets/images/img_harris.jpg')} style={styles.image}/>
+          <Text style={styles.helpmeText}>Click for more info!</Text>
         </TouchableOpacity>
         <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
               full
@@ -275,6 +280,7 @@ export default class RankingScreen extends React.Component {
         <Text style={styles.textSmall}>Party: {this.state.currentParty}</Text>
         <TouchableOpacity onPress={()=>this.candidateInfo()}>
           <Image source={require('../assets/images/img_obama.jpg')} style={styles.image}/>
+          <Text style={styles.helpmeText}>Click for more info!</Text>
         </TouchableOpacity>
         <Button style={{marginTop: 20, marginLeft: 25, marginRight: 25}}
               full
@@ -354,5 +360,11 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
     fontSize: 16
+  },
+
+  helpmeText: {
+    color:'rgba(128,128,128,0.6)',
+    fontSize: 16,
+    textAlign: 'center'
   },
 });
