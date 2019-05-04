@@ -185,15 +185,15 @@ export default class ReviewScreen extends React.Component {
       <Text style={styles.text}>Top Issues</Text>
         <FlatList
           data={[
-            //{key: 'Gun Control'},
-            //{key: 'Abortion'},
-            //{key: 'Foreign Policy'},
-            //{key: 'Economy'},
-            {key: this.format(this.state.dataSource[0])},
-            {key: this.format(this.state.dataSource2[0])},
-            {key: this.format(this.state.dataSource3[0])},
-            {key: this.format(this.state.dataSource4[0])},
-	    {key: this.format(this.state.dataSource5[0])},
+            {key: 'Gun Control'},
+            {key: 'Abortion'},
+            {key: 'Foreign Policy'},
+            {key: 'Economy'},
+            //{key: this.format(this.state.dataSource[0])},
+            //{key: this.format(this.state.dataSource2[0])},
+            //{key: this.format(this.state.dataSource3[0])},
+            //{key: this.format(this.state.dataSource4[0])},
+	    //{key: this.format(this.state.dataSource5[0])},
           ]}
           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
         />
