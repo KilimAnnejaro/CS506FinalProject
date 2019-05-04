@@ -62,7 +62,7 @@ export default class ReviewScreen extends React.Component {
     fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/most_important_issue/versions/mostimportantissuev1:predict", {
         	body: JSON.stringify(data),
         	headers: {
-          Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+          Authorization: "Bearer ya29.Glz6BtLQtIQ3XRc0lhilqfvVGrVrGIJF0PyZfSwSIhwPvT0p8o-YorcvTBb-4nnvSXDbszp0nMmd1HopurPhjRuPiNehXYi1aDrVqysZ7Iuj8sV70opRfJUeI-irBA", "Content-Type": "application/json" },
         	method: "POST" }).then((response) => response.json())
     .then((responseJson) => {
       console.log("hello1");
@@ -82,7 +82,7 @@ export default class ReviewScreen extends React.Component {
     fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/third_most_important_issue/versions/v1:predict", {
         	body: JSON.stringify(data),
         	headers: {
-          Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+          Authorization: "Bearer ya29.Glz6BtLQtIQ3XRc0lhilqfvVGrVrGIJF0PyZfSwSIhwPvT0p8o-YorcvTBb-4nnvSXDbszp0nMmd1HopurPhjRuPiNehXYi1aDrVqysZ7Iuj8sV70opRfJUeI-irBA", "Content-Type": "application/json" },
         	method: "POST" }).then((response) => response.json())
     .then((responseJson) => {
       console.log("hello1");
@@ -101,7 +101,7 @@ export default class ReviewScreen extends React.Component {
     fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/fourth_most_important_issue/versions/v1:predict", {
         	body: JSON.stringify(data),
         	headers: {
-          Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+          Authorization: "Bearer ya29.Glz6BtLQtIQ3XRc0lhilqfvVGrVrGIJF0PyZfSwSIhwPvT0p8o-YorcvTBb-4nnvSXDbszp0nMmd1HopurPhjRuPiNehXYi1aDrVqysZ7Iuj8sV70opRfJUeI-irBA", "Content-Type": "application/json" },
         	method: "POST" }).then((response) => response.json())
     .then((responseJson) => {
       console.log("hello1");
@@ -120,7 +120,7 @@ export default class ReviewScreen extends React.Component {
     fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/fifth_most_important_issue/versions/v1:predict", {
         	body: JSON.stringify(data),
         	headers: {
-          Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+          Authorization: "Bearer ya29.Glz6BtLQtIQ3XRc0lhilqfvVGrVrGIJF0PyZfSwSIhwPvT0p8o-YorcvTBb-4nnvSXDbszp0nMmd1HopurPhjRuPiNehXYi1aDrVqysZ7Iuj8sV70opRfJUeI-irBA", "Content-Type": "application/json" },
         	method: "POST" }).then((response) => response.json())
     .then((responseJson) => {
       console.log("hello1");
@@ -139,7 +139,7 @@ export default class ReviewScreen extends React.Component {
   return fetch("https://ml.googleapis.com/v1/projects/cs506finalproject/models/second_most_important_issue/versions/v1:predict", {
         	body: JSON.stringify(data),
         	headers: {
-          Authorization: "Bearer ya29.Glz5Blx2tFoBzql9fp9hyCEOeYGUvNBUfqeF-m3Z2-uOW1KPaAdOA2v4BAPWnQB6p589PnpW2iQncMmzeEAQt8C0eoBF-UlyI9ZWZfi1OhtKiI6XYjvvhO_bE6kTBQ", "Content-Type": "application/json" },
+          Authorization: "Bearer ya29.Glz6BtLQtIQ3XRc0lhilqfvVGrVrGIJF0PyZfSwSIhwPvT0p8o-YorcvTBb-4nnvSXDbszp0nMmd1HopurPhjRuPiNehXYi1aDrVqysZ7Iuj8sV70opRfJUeI-irBA", "Content-Type": "application/json" },
         	method: "POST" }).then((response) => response.json())
     .then((responseJson) => {
       console.log("hello3");
@@ -185,15 +185,15 @@ export default class ReviewScreen extends React.Component {
       <Text style={styles.text}>Top Issues</Text>
         <FlatList
           data={[
-            {key: 'Gun Control'},
-            {key: 'Abortion'},
-            {key: 'Foreign Policy'},
-            {key: 'Economy'},
-            //{key: this.format(this.state.dataSource[0])},
-            //{key: this.format(this.state.dataSource2[0])},
-            //{key: this.format(this.state.dataSource3[0])},
-            //{key: this.format(this.state.dataSource4[0])},
-	          //{key: this.format(this.state.dataSource5[0])},
+            //{key: 'Gun Control'},
+            //{key: 'Abortion'},
+            //{key: 'Foreign Policy'},
+            //{key: 'Economy'},
+            {key: this.format(this.state.dataSource[0])},
+            {key: this.format(this.state.dataSource2[0])},
+            {key: this.format(this.state.dataSource3[0])},
+            {key: this.format(this.state.dataSource4[0])},
+	    {key: this.format(this.state.dataSource5[0])},
           ]}
           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
         />

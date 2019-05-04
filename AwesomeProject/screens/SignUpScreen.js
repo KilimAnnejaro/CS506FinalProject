@@ -43,21 +43,6 @@ export default class SignUpScreen extends React.Component {
         }
     }
 
-    // loginUser = (email, password, context) =>{
-
-    //     try{
-    //       firebase.auth().signInWithEmailAndPassword(email, password)
-    //       .then(function (user) {
-    //         console.log(user)
-    //         alert("Success")
-    //         context.props.navigation.navigate('Main')
-
-    //       });
-    //     }catch(error){
-    //       alert(error.toString)
-    //     }
-    // }
-
     render() {
         return (
             <Container style={styles.container}>
